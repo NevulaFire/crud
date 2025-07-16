@@ -13,15 +13,16 @@
     <form action="/agregar" method="POST">
       <input name="nombre" placeholder="Nombre del gato" required>
       <input name="descripcion" placeholder="Descripción" required>
-      <input name="imagen_url" placeholder="URL de imagen (Drive o Cloud)" required>
+      <input name="imagen_url" placeholder="ID de imagen de Google Drive" required>
       <button>Agregar Gato</button>
     </form>
+    <p style="font-size: 0.9rem;">Ejemplo de ID: <code>1PHCMfsIUU_YvX2iOrL2UUm_mYQAuAl8K</code></p>
   </section>
 
   <section class="galeria">
     <% gatos.forEach(gato => { %>
       <div class="card">
-        <img src="<%= gato.imagen_url %>" alt="gatito">
+        <img src="https://drive.google.com/uc?export=view&id=<%= gato.imagen_url %>" alt="gatito">
         <h2><%= gato.nombre %></h2>
         <p><%= gato.descripcion %></p>
         <div class="acciones">
