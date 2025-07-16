@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Gato</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header><h1>✏️ Editar Gato</h1></header>
+  <section class="form">
+    <form action="/editar/<%= gato.id %>" method="POST">
+      <input name="nombre" value="<%= gato.nombre %>" required>
+      <input name="descripcion" value="<%= gato.descripcion %>" required>
+      <input name="imagen_url" value="<%= gato.imagen_url %>" required>
+      <button>Guardar Cambios</button>
+    </form>
+    <a href="/">← Volver</a>
+  </section>
+</body>
+</html>

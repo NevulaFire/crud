@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gatitos del Mundo</title>
+  <link rel="stylesheet" href="/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header><h1>🐱 Gatitos del Mundo</h1></header>
+
+  <section class="form">
+    <form action="/agregar" method="POST">
+      <input name="nombre" placeholder="Nombre del gato" required>
+      <input name="descripcion" placeholder="Descripción" required>
+      <input name="imagen_url" placeholder="URL de imagen (Drive o Cloud)" required>
+      <button>Agregar Gato</button>
+    </form>
+  </section>
+
+  <section class="galeria">
+    <% gatos.forEach(gato => { %>
+      <div class="card">
+        <img src="<%= gato.imagen_url %>" alt="gatito">
+        <h2><%= gato.nombre %></h2>
+        <p><%= gato.descripcion %></p>
+        <div class="acciones">
+          <a href="/editar/<%= gato.id %>">✏️ Editar</a> |
+          <a href="/eliminar/<%= gato.id %>" onclick="return confirm('¿Seguro que deseas eliminar este gato?')">🗑️ Eliminar</a>
+        </div>
+      </div>
+    <% }) %>
+  </section>
+
+  <footer>
+    <p>Video recomendado: <a href="https://www.youtube.com/watch?v=J---aiyznGQ" target="_blank">Gato sorprendido</a></p>
+  </footer>
+</body>
+</html>
